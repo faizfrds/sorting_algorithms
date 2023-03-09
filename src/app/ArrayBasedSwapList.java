@@ -41,6 +41,12 @@ public class ArrayBasedSwapList<T> implements SwapList<T> {
 	@Override
 	public boolean isSorted(Comparator<T> comparator) {
 		// TODO isSorted
+
+		for (int i = 0; i < arrayList.size()-2; i++){
+			if (comparator.compare(arrayList.get(i), arrayList.get(i+1)) > 0){
+				return false;
+			}
+		}		
 		return true;
 	}
 
@@ -61,7 +67,20 @@ public class ArrayBasedSwapList<T> implements SwapList<T> {
 	@Override
 	public int scoreList(Comparator<T> comparator) {
 		// TODO scoreList
-		return -1;
+
+		float correctlySorted = 0;
+		float comparisons = arrayList.size()-1;
+
+		for (int i = 0; i < arrayList.size()-1; i++){
+
+			if ((compare(i, i+1, comparator)) < 0){
+
+				correctlySorted++;
+			}
+		}
+
+		float percentage = (correctlySorted/comparisons)*100;
+		return (int) percentage;
 	}
 	
 	@Override

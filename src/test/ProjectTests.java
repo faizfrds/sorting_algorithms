@@ -17,7 +17,7 @@ import java.util.concurrent.TimeUnit;
 
 public class ProjectTests {
     @Rule
-	//public Timeout globalTimeout = new Timeout(1000L, TimeUnit.MILLISECONDS);
+	public Timeout globalTimeout = new Timeout(1000L, TimeUnit.MILLISECONDS);
 
 	private static final Comparator<Integer> INTEGER_COMPARATOR = new IntegerComparator();
 	private static final Comparator<String> STRING_COMPARATOR = new LexicographicStringComparator();
