@@ -9,7 +9,7 @@ public class QuickSorter<T> extends AbstractSorter<T> {
 		super(list, comparator);
 	}
 
-	private int partition(int low, int high){
+	private int partition(int low, int high){ //partition method sorts each partition accordingly
 
 		int mid = (low + high) / 2;
 		list.swap(high, mid);
@@ -18,7 +18,6 @@ public class QuickSorter<T> extends AbstractSorter<T> {
 		for (int i = low; i < high; i++){
 
 			if (list.compare(i, high, comparator) <= 0){
-
 				list.swap(i, storeIndex);
 				storeIndex++;
 			}
@@ -28,12 +27,12 @@ public class QuickSorter<T> extends AbstractSorter<T> {
 		return storeIndex;
 	}
 
-	public void quickSort(int lowindex, int highIndex){
+	public void quickSort(int lowIndex, int highIndex){ //new method where recursive can be done
 
-		if (highIndex > lowindex){
-
-			int lowEndIndex = partition(lowindex, highIndex);
-			quickSort(lowindex, lowEndIndex - 1);
+		if (highIndex > lowIndex){ //as long as the lower index remains lower than the high, than it is not sorted yet
+			
+			int lowEndIndex = partition(lowIndex, highIndex);
+			quickSort(lowIndex, lowEndIndex - 1);
 			quickSort(lowEndIndex + 1, highIndex);
 		}
 
@@ -46,8 +45,7 @@ public class QuickSorter<T> extends AbstractSorter<T> {
 		if (list.size() == 0){
 			return list;
 		}
-
-		quickSort(0, list.size()-1);
+		quickSort(0, list.size()-1); //using first index as lowest and last index as highest
 		return list;
 	}
 }

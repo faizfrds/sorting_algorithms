@@ -21,9 +21,8 @@ public class InsertionSorter<T> extends AbstractSorter<T> {
 				
 				// Swap numbers[j] and numbers[j - 1]
 		
-				list.swap(j, j-1);
-				
-				--j;
+				list.swap(j, j-1);	
+				j--;
 			}
 		}
 
